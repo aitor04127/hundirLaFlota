@@ -31,6 +31,7 @@ export class AppComponent {
 
 
 
+
   disparar(x: number,y: number) {
     this.tablero[x][y].url = "\\img\\tocado.png";
     console.log("X: " + x + " Y: " + y);
