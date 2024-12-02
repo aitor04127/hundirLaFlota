@@ -1,4 +1,4 @@
-export class Table {
+export class Coordenada {
 
 x: number;
 y: number;
