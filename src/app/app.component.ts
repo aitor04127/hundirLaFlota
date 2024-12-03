@@ -34,26 +34,26 @@ export class AppComponent {
   }
 
   disparar(x: number,y: number) {
-    if(this.comprobarDisparo(x,y)){
-      this.tablero[x][y].url = "\\img\\tocado.png";
+   if(this.comprobarDisparo(x,y)){
+     this.tablero[x][y].url = "\\img\\tocado.png";
       this.tablero[x][y].disparado = true;
       this.tablero[x][y].tocado = true;
     }else{
-      //agua
-      this.tablero[x][y].disparado = true;
-    }
+      this.tablero[x][y].tocado=false
+     this.tablero[x][y].disparado = true;
+   }
     
     console.log("X: " + x + " Y: " + y);
   }
 
   comprobarDisparo(x:number, y:number):boolean{
-    var tocado:boolean = false;
+   var tocado:boolean = false;
     for(var i:number=0; i<this.flota.length;i++){
-      for(var j:number=0; j<this.flota[i].getPosiciones.length;j++){
-        if(){
-          tocado=true;
-        }
-      }
+    for(var j:number=0; j<this.flota[i].getPosiciones.length;j++){
+      if(){
+         tocado=true;
+       }
+     }
     }
     return tocado;
   }
