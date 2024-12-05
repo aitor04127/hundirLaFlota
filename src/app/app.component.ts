@@ -34,6 +34,7 @@ export class AppComponent {
   }
 
   disparar(x: number,y: number) {
+<<<<<<< HEAD
     if(!this.tablero[x][y].disparado&&this.numeroDeCoordenadasDeFlota!==this.numeroDeDisparosAcertados){
       if(this.comprobarDisparo(x,y)){
         this.tablero[x][y].url = "\\img\\tocado.png";
@@ -51,10 +52,21 @@ export class AppComponent {
     if(this.numeroDeCoordenadasDeFlota===this.numeroDeDisparosAcertados){
       alert("HAS GANADO");
     }
+=======
+   if(this.comprobarDisparo(x,y)){
+     this.tablero[x][y].url = "\\img\\tocado.png";
+      this.tablero[x][y].disparado = true;
+      this.tablero[x][y].tocado = true;
+    }else{
+      this.tablero[x][y].tocado=false
+     this.tablero[x][y].disparado = true;
+   }
+>>>>>>> cbd30ea56579a62c4465d9ab749bce5f83338360
     
   }
 
   comprobarDisparo(x:number, y:number):boolean{
+<<<<<<< HEAD
     console.log("XY: " + x + "," + y)
     var tocado:boolean = false;
     for(var i:number=0; i<this.flota.length;i++){
@@ -65,6 +77,15 @@ export class AppComponent {
           tocado=true;
         }
       }
+=======
+   var tocado:boolean = false;
+    for(var i:number=0; i<this.flota.length;i++){
+    for(var j:number=0; j<this.flota[i].getPosiciones.length;j++){
+      if(){
+         tocado=true;
+       }
+     }
+>>>>>>> cbd30ea56579a62c4465d9ab749bce5f83338360
     }
     return tocado;
   }
