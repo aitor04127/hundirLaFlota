@@ -34,23 +34,34 @@ export class AppComponent {
   }
 
   disparar(x: number,y: number) {
-    if(this.comprobarDisparo(x,y)){
-      this.tablero[x][y].url = "\\img\\tocado.png";
-      this.tablero[x][y].disparado = true;
-      this.tablero[x][y].tocado = true;
-    }else{
-      //agua
-      this.tablero[x][y].disparado = true;
+    if(!this.tablero[x][y].disparado&&this.numeroDeCoordenadasDeFlota!==this.numeroDeDisparosAcertados){
+      if(this.comprobarDisparo(x,y)){
+        this.tablero[x][y].url = "\\img\\tocado.png";
+        this.tablero[x][y].disparado = true;
+        this.tablero[x][y].tocado = true;
+        this.numeroDeDisparosAcertados++;
+      }else{
+        //agua
+        this.tablero[x][y].disparado = true;
+        this.tablero[x][y].tocado = false;
+        this.tablero[x][y].url = "\\img\\agua.png";
+      }
+    }
+
+    if(this.numeroDeCoordenadasDeFlota===this.numeroDeDisparosAcertados){
+      alert("HAS GANADO");
     }
     
-    console.log("X: " + x + " Y: " + y);
   }
 
   comprobarDisparo(x:number, y:number):boolean{
+    console.log("XY: " + x + "," + y)
     var tocado:boolean = false;
     for(var i:number=0; i<this.flota.length;i++){
-      for(var j:number=0; j<this.flota[i].getPosiciones.length;j++){
-        if(){
+      for(var j:number=0; j<this.flota[i].posiciones.length&&!tocado;j++){
+        console.log("asdfasdf")
+        console.log(this.flota[i].posiciones[j])
+        if(this.flota[i].posiciones[j].x === x && this.flota[i].posiciones[j].y === y){
           tocado=true;
         }
       }
@@ -73,5 +84,7 @@ export class AppComponent {
 
     this.flota.push(sheep);
     this.numeroDeCoordenadasDeFlota = this.numeroDeCoordenadasDeFlota + tamano;
+
+    console.log(this.flota)
   }
 }
